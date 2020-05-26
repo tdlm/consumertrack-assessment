@@ -136,8 +136,12 @@ $ npx gulp sass
 
 ## Available Bin Commands
 
+- `./bin/bash.sh` (Gives you a prompt in the php-fpm container running WordPress)
 - `./bin/destroy.sh` (Destroys Docker VM and non-repository files/directories)
+- `./bin/restart.sh` (Restarts Docker)
 - `./bin/setup.sh` (Full installation from ground up)
+- `./bin/start.sh` (Starts Docker)
+- `./bin/stop.sh` (Stops Docker)
 - `./bin/test.sh` (Runs PHPCS against plugin/theme files)
 
 ## TODOS:
