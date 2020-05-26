@@ -1,0 +1,7 @@
+# Files
+.DS_Store
+debug.log
+
+# Folders
+node_modules
+vendor
