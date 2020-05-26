@@ -106,3 +106,15 @@ docker-compose exec --user root php-fpm wp config set WP_DEBUG_LOG true --raw --
 # =====
 section_header "Set Rewrite Structure"
 docker-compose exec --user root php-fpm wp rewrite structure "/%postname%/" --hard --allow-root
+
+# =====
+# Switch Theme
+# =====
+section_header "Switch Theme"
+docker-compose exec --user root php-fpm wp theme activate micronaut --allow-root
+
+# =====
+# Delete Other Themes
+# =====
+section_header "Delete Other Themes"
+DELETE_OUTPUT=$(cd ./content/themes/ && rm -rf twenty*)
