@@ -3,5 +3,7 @@
 debug.log
 
 # Folders
+data/
+wordpress/
 node_modules
 vendor
