@@ -59,7 +59,6 @@ if [ ! -f wordpress/wp-config.php ]; then
       --force \
       --allow-root) && break
 
-    # [[ $CREATE_CONFIG == *"Success"* ]] && break
     echo "Database not created yet. Sleeping 5 seconds..."
     sleep 5
   done
@@ -76,3 +75,9 @@ docker-compose exec --user root php-fpm wp core install \
   --admin_email="user@domain.com" \
   --admin_password="wordpress" \
   --allow-root
+
+# =====
+# Run Composer
+# =====
+section_header "Run Composer"
+docker-compose exec --user root php-fpm /bin/bash -c "cd wp-content && composer install"
