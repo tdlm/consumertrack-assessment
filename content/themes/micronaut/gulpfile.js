@@ -3,6 +3,7 @@
 const { src, dest, series, watch } = require("gulp");
 const autoprefixer = require("gulp-autoprefixer");
 const babel = require("gulp-babel");
+const browserSync = require("browser-sync").create();
 const gulpSass = require("gulp-sass");
 const rename = require("gulp-rename");
 const terser = require("gulp-terser");
@@ -20,15 +21,6 @@ const paths = {
     src: ["./**/*.php"],
   },
 };
-
-/**
- * Clean distribution folder.
- * @param {function} cb Callback function.
- */
-function clean(cb) {
-  src("./assets/dist", { read: false, allowEmpty: true }).pipe(gulpClean());
-  cb();
-}
 
 /**
  * Process JavaScript files.
@@ -73,6 +65,25 @@ function watcher(cb) {
 }
 
 /**
+ * BrowserSync serve.
+ * @param {function} cb Callback function.
+ */
+function serve(cb) {
+  browserSync.init({
+    proxy: "localhost",
+    notify: false,
+  });
+
+  watch([...paths.scripts.src, ...paths.styles.src], series(js, sass));
+  watch([...paths.scripts.src, ...paths.styles.src, ...paths.php.src]).on(
+    "change",
+    browserSync.reload
+  );
+
+  cb();
+}
+
+/**
  * Build files.
  * @param {function} cb Callback function.
  */
@@ -86,4 +97,5 @@ exports.build = build;
 exports.default = build;
 exports.js = js;
 exports.sass = sass;
+exports.serve = serve;
 exports.watch = watcher;
