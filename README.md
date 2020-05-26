@@ -4,6 +4,22 @@
 
 Micronaut is a micro theme running on Dockerized WordPress.
 
+---
+
+**Table of Contents**
+
+- [Dependencies](#dependencies) - Please verify you are ready to run Micronaut before proceeding.
+- [Installation](#installation) - Quick setup and installation instructions!
+- [Development](#development) - How to develop on the theme.
+  - [BrowserSync](#browsersync) - How to use BrowserSync.
+  - [JavaScript](#javascript) - How to compile your JavaScript.
+  - [SASS CSS](#sass-css) - How to compile your SASS/SCSS.
+  - [Watcher](#watcher) - How to use the watcher.
+- [Available Bin Commands](#available-bin-commands) - Commands available to manage Docker/WordPress.
+- [TODOS](#todos) - Action items to get this setup/theme to v0.0.1.
+
+---
+
 ## Dependencies
 
 - In order to run this, you must first install and configure [Docker](https://www.docker.com/get-started).
