@@ -3,6 +3,10 @@
 debug.log
 
 # Folders
+content/plugins/akismet
+content/plugins/hello.php
+content/themes/twenty*
+content/uploads
 data/
 wordpress/
 node_modules
