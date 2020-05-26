@@ -7,7 +7,7 @@ content/plugins/advanced-custom-fields
 content/plugins/custom-post-type-ui
 content/themes/twenty*
 content/uploads
-data/
-wordpress/
+/data
+/wordpress
 node_modules
 vendor

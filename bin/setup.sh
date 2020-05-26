@@ -118,3 +118,9 @@ docker-compose exec --user root php-fpm wp theme activate micronaut --allow-root
 # =====
 section_header "Delete Other Themes"
 DELETE_OUTPUT=$(cd ./content/themes/ && rm -rf twenty*)
+
+# =====
+# Add Movies
+# =====
+section_header "Add Movies"
+docker-compose exec --user root php-fpm wp movies import --file="imdb-50-top-rated-movies.csv" --allow-root
