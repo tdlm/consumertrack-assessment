@@ -124,3 +124,24 @@ DELETE_OUTPUT=$(cd ./content/themes/ && rm -rf twenty*)
 # =====
 section_header "Add Movies"
 docker-compose exec --user root php-fpm wp movies import --file="imdb-50-top-rated-movies.csv" --allow-root
+
+# =====
+# Run NPM Install on Micro Theme
+# =====
+section_header "NPM Install"
+NPM_OUTPUT=$(cd ./content/themes/micronaut/ && npm install 2>&1)
+
+# =====
+# Run Gulp Build
+# =====
+GULP_OUTPUT=$(cd ./content/themes/micronaut/ && npx gulp js && npx gulp sass)
+
+# =====
+# Done
+# =====
+section_header "🎉 Done 🎉"
+echo "Visit the site at http://localhost"
+echo "- Or -"
+echo "Visit the admin at http://localhost/wp-admin"
+echo "username: wordpress"
+echo "password: wordpress"
