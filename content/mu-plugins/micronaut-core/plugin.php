@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name: Micronaut Core
  * Plugin Script: plugin.php
