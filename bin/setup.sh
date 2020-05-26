@@ -81,3 +81,28 @@ docker-compose exec --user root php-fpm wp core install \
 # =====
 section_header "Run Composer"
 docker-compose exec --user root php-fpm /bin/bash -c "cd wp-content && composer install"
+
+# =====
+# Remove default plugins.
+# =====
+section_header "Remove Default Plugins"
+docker-compose exec --user root php-fpm wp plugin delete hello akismet --allow-root
+
+# =====
+# Enable Composer-installed plugins
+# =====
+section_header "Enable Composer-installed Plugins"
+docker-compose exec --user root php-fpm wp plugin activate --all --allow-root
+
+# =====
+# Turn on debugging.
+# =====
+section_header "Enable Debugging"
+docker-compose exec --user root php-fpm wp config set WP_DEBUG true --raw --type="constant" --allow-root
+docker-compose exec --user root php-fpm wp config set WP_DEBUG_LOG true --raw --type="constant" --allow-root
+
+# =====
+# Set Rewrite Structure
+# =====
+section_header "Set Rewrite Structure"
+docker-compose exec --user root php-fpm wp rewrite structure "/%postname%/" --hard --allow-root
