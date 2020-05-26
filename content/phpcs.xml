@@ -3,20 +3,21 @@
     <description>Micronaut WordPress Coding Standards</description>
 
     <!-- Scan plugin/theme files. -->
-	<file>mu-plugins/micronaut-core</file>
+    <file>mu-plugins/loader.php</file>
+    <file>mu-plugins/micronaut-core</file>
     <file>themes/micronaut</file>
 
     <!-- Scan only PHP files. -->
-	<arg name="extensions" value="php"/>
+    <arg name="extensions" value="php"/>
 
     <!-- Show colors in console. -->
-	<arg name="colors"/>
+    <arg name="colors"/>
 
     <!-- Show sniff codes in all reports. -->
     <arg value="ns"/>
 
-	<!-- Show progress and sniff codes in all reports. -->
-	<arg value="ps"/>
+    <!-- Show progress and sniff codes in all reports. -->
+    <arg value="ps"/>
 
     <!-- Include the WordPress-Extra standard. -->
     <rule ref="WordPress-Extra">
@@ -27,12 +28,12 @@
     <!-- Ensure things are properly documented. -->
     <rule ref="WordPress-Docs"/>
 
-	<!-- Include WordPress coding standards. -->
-	<rule ref="WordPress">
+    <!-- Include WordPress coding standards. -->
+    <rule ref="WordPress">
         <!-- Exclude any rules here -->
         <exclude name="Generic.Commenting.DocComment.MissingShort"/>
         <exclude name="Squiz.Commenting.FileComment.Missing"/>
-	</rule>
+    </rule>
 
     <!-- Add in some extra rules from other standards. -->
     <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
