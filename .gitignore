@@ -3,6 +3,7 @@
 debug.log
 
 # Folders
+.idea
 /data
 /wordpress
 content/plugins/advanced-custom-fields
