@@ -8,5 +8,6 @@ debug.log
 content/plugins/advanced-custom-fields
 content/plugins/custom-post-type-ui
 content/uploads
+dist
 node_modules
 vendor

@@ -27,7 +27,22 @@ add_action( 'init', 'micronaut_setup' );
  * Enqueue assets (JS/CSS).
  */
 function micronaut_enqueue_assets() {
-    // TODO: Fill these in.
+	wp_register_script(
+		'micronaut-js',
+		get_template_directory_uri() . '/assets/dist/js/theme.min.js',
+		array(),
+		\Micronaut\Core\PLUGIN_VERSION,
+		true
+	);
+
+	wp_enqueue_style(
+		'micronaut-css',
+		get_template_directory_uri() . '/assets/dist/css/theme.min.css',
+		array(),
+		\Micronaut\Core\PLUGIN_VERSION
+	);
+
+	wp_enqueue_script( 'micronaut-js' );
 }
 
 /**

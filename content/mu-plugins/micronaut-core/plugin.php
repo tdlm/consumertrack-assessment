@@ -1,19 +1,19 @@
 <?php
 
 /**
- * Plugin Name: MicroTheme Core
+ * Plugin Name: Micronaut Core
  * Plugin Script: plugin.php
  * Plugin URI: http://localhost/
- * Description: MicroTheme Core Plugin
+ * Description: Micronaut Core Plugin
  * Author: Scott Weaver
  * Author URI: https://scottmw.com
  * Version: 0.0.1
  *
  * @package    WordPress
- * @subpackage MicroTheme
+ * @subpackage Micronaut
  */
 
-namespace MicroTheme\Core;
+namespace Micronaut\Core;
 
 use WP_CLI;
 

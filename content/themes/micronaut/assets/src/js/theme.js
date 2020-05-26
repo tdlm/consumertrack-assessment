@@ -1,1 +1,1 @@
-// TODO: Log something to show you exist.
+console.log("Micronaut theme loaded");
