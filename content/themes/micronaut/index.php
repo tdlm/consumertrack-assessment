@@ -31,6 +31,31 @@ get_header();
 			endif;
 			?>
 		</div>
+
+		<div class="container">
+			<h1><?php esc_html_e( 'Movies', 'micronaut' ); ?></h1>
+				<?php
+				$args = array(
+					'orderby'        => 'title',
+					'order'          => 'ASC',
+					'post_status'    => 'publish',
+					'post_type'      => 'movie',
+					'posts_per_page' => 50,
+				);
+
+				$query = new WP_Query( $args );
+
+				if ( $query->have_posts() ) :
+					while ( $query->have_posts() ) :
+						$query->the_post();
+						get_template_part( 'template-parts/content', 'movie' );
+					endwhile;
+				else :
+					get_template_part( 'template-parts/content', 'none' );
+				endif;
+				wp_reset_postdata();
+				?>
+		</div>
 	</main><!-- .site-main -->
 <?php
 get_footer();

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file       class-cli.php
- * CLI class for MicroTheme.
+ * CLI class for Micronaut.
  *
  * @package    WordPress
- * @subpackage MicroTheme\Core
+ * @subpackage Micronaut\Core
  */
 
-namespace MicroTheme\Core;
+namespace Micronaut\Core;
 
 use WP_CLI;
 use WP_CLI_Command;
@@ -15,7 +15,7 @@ use WP_CLI_Command;
 /**
  * Class CLI
  *
- * @package MicroTheme\Core
+ * @package Micronaut\Core
  */
 class CLI extends WP_CLI_Command {
 
