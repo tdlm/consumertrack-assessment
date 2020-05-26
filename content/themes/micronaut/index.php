@@ -7,9 +7,9 @@
  * It is used to display a page when nothing more specific matches a query.
  * E.g., it puts together the home page when no home.php file exists.
  *
- * @link    https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link       https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package WordPress
+ * @package    WordPress
  * @subpackage Micronaut
  */
 
@@ -34,27 +34,27 @@ get_header();
 
 		<div class="container">
 			<h1><?php esc_html_e( 'Movies', 'micronaut' ); ?></h1>
-				<?php
-				$args = array(
-					'orderby'        => 'title',
-					'order'          => 'ASC',
-					'post_status'    => 'publish',
-					'post_type'      => 'movie',
-					'posts_per_page' => 50,
-				);
+			<?php
+			$args = array(
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+				'post_status'    => 'publish',
+				'post_type'      => 'movie',
+				'posts_per_page' => 50,
+			);
 
-				$query = new WP_Query( $args );
+			$query = new WP_Query( $args );
 
-				if ( $query->have_posts() ) :
-					while ( $query->have_posts() ) :
-						$query->the_post();
-						get_template_part( 'template-parts/content', 'movie' );
-					endwhile;
-				else :
-					get_template_part( 'template-parts/content', 'none' );
-				endif;
-				wp_reset_postdata();
-				?>
+			if ( $query->have_posts() ) :
+				while ( $query->have_posts() ) :
+					$query->the_post();
+					get_template_part( 'template-parts/content', 'movie' );
+				endwhile;
+			else :
+				get_template_part( 'template-parts/content', 'none' );
+			endif;
+			wp_reset_postdata();
+			?>
 		</div>
 	</main><!-- .site-main -->
 <?php

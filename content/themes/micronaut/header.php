@@ -2,7 +2,7 @@
 /**
  * The template for displaying the header.
  *
- * @package WordPress
+ * @package    WordPress
  * @subpackage Micronaut
  */
 
