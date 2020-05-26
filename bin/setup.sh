@@ -26,7 +26,7 @@ for dependency in "${dependencies[@]}"; do
 done
 
 # =====
-# Start Docker and wait 60 seconds
+# Build Docker
 # =====
 section_header "Build Docker"
 docker-compose up -d
@@ -42,7 +42,6 @@ docker-compose exec --user root php-fpm wp core download --force --allow-root
 # =====
 section_header "Grant Permissions"
 docker-compose exec --user root php-fpm chmod +x -R /var/www/html/wp-content
-
 
 # =====
 # Create WordPress config file, if necessary
@@ -126,7 +125,7 @@ section_header "Add Movies"
 docker-compose exec --user root php-fpm wp movies import --file="imdb-50-top-rated-movies.csv" --allow-root
 
 # =====
-# Run NPM Install on Micro Theme
+# Run NPM Install on Micronaut Theme
 # =====
 section_header "NPM Install"
 NPM_OUTPUT=$(cd ./content/themes/micronaut/ && npm install 2>&1)
