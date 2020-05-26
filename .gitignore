@@ -3,11 +3,10 @@
 debug.log
 
 # Folders
-content/plugins/advanced-custom-fields
-content/plugins/custom-post-type-ui
-content/themes/twenty*
-content/uploads
 /data
 /wordpress
+content/plugins/advanced-custom-fields
+content/plugins/custom-post-type-ui
+content/uploads
 node_modules
 vendor
