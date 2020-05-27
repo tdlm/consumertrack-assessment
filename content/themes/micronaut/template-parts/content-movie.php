@@ -9,7 +9,7 @@
 $movie_director = get_post_meta( get_the_ID(), 'movie_director', true );
 $movie_year     = get_post_meta( get_the_ID(), 'movie_year', true );
 ?>
-<div class="card mb-3">
+<article class="card mb-3">
 	<div class="card-body">
 		<?php the_title( sprintf( '<h5 class="card-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h5>' ); ?>
 		<div class="card-text">
@@ -27,4 +27,4 @@ $movie_year     = get_post_meta( get_the_ID(), 'movie_year', true );
 			</small>
 		</div>
 	</div>
-</div>
+</article>
