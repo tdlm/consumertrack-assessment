@@ -20,3 +20,14 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<main id="content" role="main">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light container sticky-top">
+		<a class="navbar-brand" href="/"><?php echo esc_html__( 'Micronaut', 'micronaut' ); ?></a>
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="#posts"><?php echo esc_html__( 'Posts', 'micronaut' ); ?></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#movies"><?php echo esc_html__( 'Movies', 'micronaut' ); ?></a>
+			</li>
+		</ul>
+	</nav>
