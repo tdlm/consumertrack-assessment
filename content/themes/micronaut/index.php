@@ -17,7 +17,7 @@ get_header();
 ?>
 	<main id="main" class="site-main">
 		<div class="container">
-			<h1><?php esc_html_e( 'Posts', 'micronaut' ); ?></h1>
+			<h2 id="posts"><?php esc_html_e( 'Posts', 'micronaut' ); ?></h2>
 			<?php
 			if ( have_posts() ) :
 
@@ -33,7 +33,7 @@ get_header();
 		</div>
 
 		<div class="container">
-			<h1><?php esc_html_e( 'Movies', 'micronaut' ); ?></h1>
+			<h2 id="movies"><?php esc_html_e( 'Movies', 'micronaut' ); ?></h2>
 			<?php
 			$args = array(
 				'orderby'        => 'title',

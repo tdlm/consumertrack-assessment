@@ -21,7 +21,7 @@
 <div id="page" class="site">
 	<main id="content" role="main">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light container sticky-top">
-		<a class="navbar-brand" href="/"><?php echo esc_html__( 'Micronaut', 'micronaut' ); ?></a>
+		<a class="navbar-brand" href="/"><h1 class="text-reset"><?php echo esc_html__( 'Micronaut', 'micronaut' ); ?></h1></a>
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
 				<a class="nav-link" href="#posts"><?php echo esc_html__( 'Posts', 'micronaut' ); ?></a>
