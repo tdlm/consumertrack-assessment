@@ -1,20 +1,25 @@
 "use strict";
 
 const { src, dest, series, watch } = require("gulp");
-const autoprefixer = require("gulp-autoprefixer");
-const babel = require("gulp-babel");
+const babelify = require("babelify");
+const browserify = require("browserify");
 const browserSync = require("browser-sync").create();
+const gulpAutoprefixer = require("gulp-autoprefixer");
+const gulpRename = require("gulp-rename");
 const gulpSass = require("gulp-sass");
-const rename = require("gulp-rename");
-const terser = require("gulp-terser");
+const minifyStream = require("minify-stream"); // Minify uses Terser (uglify) for JS: https://github.com/terser/terser
+const vinylSourceStream = require("vinyl-source-stream");
 
+/**
+ * Source path mapping.
+ */
 const paths = {
   scripts: {
-    src: ["./assets/src/js/*.js"],
+    src: ["./assets/src/js/theme.js"],
     dest: "assets/dist/js/",
   },
   styles: {
-    src: ["./assets/src/scss/*.scss"],
+    src: ["./assets/src/scss/**/*.scss"],
     dest: "assets/dist/css/",
   },
   php: {
@@ -27,15 +32,35 @@ const paths = {
  * @param {function} cb Callback function.
  */
 function js(cb) {
-  src(paths.scripts.src, { sourcemaps: false })
-    .pipe(
-      babel({
-        presets: ["@babel/preset-env"],
+  browserify({
+    extensions: [".jsx", ".js"],
+    debug: true,
+    cache: {},
+    packageCache: {},
+    fullPaths: true,
+    entries: paths.scripts.src,
+  })
+    .transform(
+      babelify.configure({
+        presets: ["babel-preset-env"],
+        ignore: ["node_modules"],
       })
     )
-    .pipe(terser())
-    .pipe(rename({ suffix: ".min" }))
-    .pipe(dest(paths.scripts.dest));
+    .bundle()
+    .on("error", function (err) {
+      console.log("Error : " + err.message);
+    })
+    .pipe(
+      minifyStream({
+        ecma: "es2015",
+        mangle: true,
+        output: {
+          comments: "some",
+        },
+      })
+    )
+    .pipe(vinylSourceStream("theme.min.js"))
+    .pipe(dest("./assets/dist/js"));
 
   cb();
 }
@@ -49,8 +74,8 @@ function sass(cb) {
     .pipe(
       gulpSass({ outputStyle: "compressed" }).on("error", gulpSass.logError)
     )
-    .pipe(autoprefixer("last 1 version", "> 1%"))
-    .pipe(rename({ suffix: ".min" }))
+    .pipe(gulpAutoprefixer("last 1 version", "> 1%"))
+    .pipe(gulpRename({ suffix: ".min" }))
     .pipe(dest(paths.styles.dest));
   cb();
 }
@@ -93,6 +118,9 @@ function build(cb) {
   cb();
 }
 
+/**
+ * Exports.
+ */
 exports.build = build;
 exports.default = build;
 exports.js = js;
