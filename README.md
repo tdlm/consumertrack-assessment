@@ -32,16 +32,10 @@ Micronaut is a micro theme running on Dockerized WordPress.
 
 ## Installation
 
-1. Clone the repository
+1. Clone the repository and CD in
 
    ```bash
-   git clone git@github.com:tdlm/consumertrack-assessment.git
-   ```
-
-1. CD into the directory
-
-   ```bash
-   cd consumertrack-assessment
+   git clone git@github.com:tdlm/consumertrack-assessment.git && cd consumertrack-assessment
    ```
 
 1. Run the setup script and grab a cup of coffee ☕. This might take a while.
